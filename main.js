@@ -1,25 +1,36 @@
 window.addEventListener("DOMContentLoaded", (event) => {
     setInterval(() => {
-        const data = mockData();
-        handleData(data);
+        const heartRate = mockHeartRate();
+        const songs = mockSongList();
+
+        handleHeartRate(heartRate);
+        handleSongList(songs);
+
     }, 2000);
 });
 
-const handleData = (data) => {
-    console.log(data)
+const handleHeartRate = (heartRate) => {
+    console.log("HR:", heartRate)
     const heartRateElement = document.getElementById("heart-rate");
-    heartRateElement.innerHTML = data.heartRate;
-
-    const playList = document.getElementById("playList");
-    playList.innerHTML = data.playList.join(", ");
+    heartRateElement.innerHTML = heartRate;
 }
 
-// This function will be replaced by a function 'getData'
-const mockData = () => {
-    const playList = ["Song 1", "Song 2", "Song 3"];
-    const heartRate = Math.floor(60 + 20*Math.random());
+const handleSongList = (playList) => {
+    console.log("Songs:", playList)
+    const playListElement = document.getElementById("playList");
+    playListElement.innerHTML = playList.join(", ");
+}
 
-    return {
-        playList, heartRate
-    }
+// This function will be replaced by a function 'getSongList'
+const mockSongList = () => {
+    const playList = ["Song 1", "Song 2", "Song 3"];
+
+    return playList
+}
+
+// This function will be replaced by a function 'getHeartRate'
+const mockHeartRate = () => {
+    const heartRate = Math.floor(60 + 20 * Math.random());
+
+    return heartRate
 }
