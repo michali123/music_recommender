@@ -1,11 +1,14 @@
 //setting up express.js server
-
 const express = require("express");
 const bodyParser = require("body-parser");
+
 const app = express();
 const port = 3000;
+app.use(bodyParser.urlencoded({extended: true}));
 
-
+app.get('/', function(res,req){
+  res.sendFile(__dirname + "/index.html"); // sending to home route our html file
+      //console.log(request);
 
 window.addEventListener("DOMContentLoaded", (event) => {
     setInterval(() => {
@@ -43,3 +46,7 @@ const mockHeartRate = () => {
 
     return heartRate
 }
+
+app.listen(port, function(){
+  console.log("server stared on port 3000");
+});
