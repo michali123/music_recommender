@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, jsonify
 import requests, json
 import time
 import atexit
@@ -26,23 +26,23 @@ def getPulsoidHR():
     response = requests.get('https://dev.pulsoid.net/api/v1/data/heart_rate/latest', headers=headers)
     heartRate = response.json()
     print("Current heart rate:" , heartRate['data']['heart_rate'])
+    heartRate = heartRate['data']['heart_rate']
     return heartRate
 
 scheduler = BackgroundScheduler()
 scheduler.add_job(func=getPulsoidHR, trigger="interval", seconds=3)
-
-
+# scheduler.start()
 @app.route("/") #goes to main page
 def index():
     tokenData = getPulsoidToken()
-    heartRate = getPulsoidHR()
     print(tokenData['scopes'][0])
-    scheduler.start()
-    return render_template("index.html", hr= heartRate['data']['heart_rate'])
+    heartRate = getPulsoidHR()
+
+    return render_template("index.html", hr= heartRate)
 
 
 if __name__== "__main__":
     app.run(debug=True)
 
 # Shut down the scheduler when exiting the app
-atexit.register(lambda: scheduler.shutdown())
+# atexit.register(lambda: scheduler.shutdown())

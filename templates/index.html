@@ -11,8 +11,35 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="{{url_for('static', filename='app.js')}}"></script>
+<script>
 
+
+// Rendering heartRate every 2 seconds
+function reloadDIV()
+{
+    $( "#heart_rate" ).load(window.location.href + " #heart_rate" );
+}
+
+$(document).ready(function()
+{
+    function refresh()
+    {
+        var div = $('#heart_rate'),
+            divHtml = div.html();
+
+        div.html(divHtml);
+    }
+
+    setInterval(function()
+    {
+        refresh()
+        reloadDIV()
+    }, 2000); //2000 is 2 seconds in miliseconds
+})
+
+</script>
   </head>
   <body>
     <div class="title">
@@ -35,7 +62,7 @@
       </div>
   <div class="heart-rate">
     <hr height="2px" width= "20%" >
-    <h2>Your current heart rate: <span id="heart-rate"></span> {{hr}}</h2>
+    <h2>Your current heart rate: <div id="heart_rate">{{hr}}</div> </h2>
     <img src="../static/images/heart.png" alt="heart">
   </div>
 
