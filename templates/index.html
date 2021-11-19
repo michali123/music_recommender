@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>NextSong</title>
+    <!-- <link rel="stylesheet" href="../static/styles.css"> -->
+    <!-- flask picking up .css file -->
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
+    <link rel="icon"  href="../static/images/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
+<script src="app.js" type="text/javascript"></script>
+
+  </head>
+  <body>
+    <div class="title">
+      <h1> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
+        smart music recommender, using machine learning.</h1>
+
+    </div>
+    <div class="steps">
+      <img class="step1" src="../static/images/1.png" alt="step1">
+      <img class="step2" src="../static/images/2.png" alt="step2">
+      <img class="step3" src="../static/images/3.png" alt="step3">
+      <img class="step4" src="../static/images/4.png" alt="step4">
+
+
+    </div>
+    <div class="recommender">
+      <h2>Your current queue: </h2>
+      <div id="playList">
+
+      </div>
+  <div class="heart-rate">
+    <hr height="2px" width= "20%" >
+    <h2>Your current heart rate: <span id="heart-rate"></span> {{hr}}</h2>
+    <img src="../static/images/heart.png" alt="heart">
+  </div>
+
+    </div>
+
+
+
+  </body>
+
+  <footer id="footer">
+
+    <p>Made with ❤ by ©NextSong, 2021 <br />This is an open source project
+    <a href="https://github.com/michali123/music_recommender" target="_blank" >GitHub</a>.</p>
+
+  </footer>
+
+</html>

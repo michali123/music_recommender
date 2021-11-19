@@ -1,0 +1,74 @@
+
+body{
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #FED2AA;
+
+}
+.title{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background: #FED2AA;
+  margin-bottom: 0;
+  padding-bottom: 20px;
+}
+
+h1{
+  margin: 0;
+  padding-top:  20px;
+  padding-bottom: 10px;
+}
+
+.projectName{
+  font-family: 'Lakki Reddy', cursive;
+  font-size: 2em;
+}
+
+.steps{
+  background-color: #968484;
+  text-align: center;
+  padding-bottom: 30px;
+
+}
+
+h2{
+}
+
+.recommender{
+  padding:  20px;
+  background-color: #FBA0A0
+}
+
+
+.heart-rate{
+  margin-top: 20px;
+  background-color: #FBA0A0
+}
+
+hr{
+    border: 2;
+    text-align: center;
+
+}
+
+img{
+  margin-top: 50px;
+  margin-right: 30px;
+  border: none;
+
+}
+
+
+#footer{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background: #FED2AA;
+  padding: 20px;
+  margin: 0;
+
+  /* margin-top: 60px;
+  padding-top: 50px;
+  padding-bottom: 20px; */
+}
