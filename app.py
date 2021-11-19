@@ -7,24 +7,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask_apscheduler import APScheduler
 # from secrets import PULSOID_SECRET_KEY
 
-# set configuration values
-class Config:
-    SCHEDULER_API_ENABLED = True
-
-
 app = Flask(__name__)
-
-
-@app.route("/") #goes to main page
-def index():
-    tokenData = getPulsoidToken()
-    heartRate = getPulsoidHR()
-    print(tokenData['scopes'][0])
-    print("Current heart rate:" , heartRate['data']['heart_rate'])
-    renewAPIcall(getPulsoidHR)
-    return render_template("index.html", hr= heartRate['data']['heart_rate'])
-
-
 
 def getPulsoidToken():
     headers = {
@@ -42,16 +25,24 @@ def getPulsoidHR():
     }
     response = requests.get('https://dev.pulsoid.net/api/v1/data/heart_rate/latest', headers=headers)
     heartRate = response.json()
+    print("Current heart rate:" , heartRate['data']['heart_rate'])
     return heartRate
 
-def renewAPIcall(gettingHRfunc):
-    print("current time taken" , time.strftime("%A, %d. %B %Y %I:%M:%S %p"))
-    scheduler = BackgroundScheduler()
-    scheduler.add_job(func=gettingHRfunc, trigger="interval", seconds=1)
+scheduler = BackgroundScheduler()
+scheduler.add_job(func=getPulsoidHR, trigger="interval", seconds=3)
+
+
+@app.route("/") #goes to main page
+def index():
+    tokenData = getPulsoidToken()
+    heartRate = getPulsoidHR()
+    print(tokenData['scopes'][0])
     scheduler.start()
-    # Shut down the scheduler when exiting the app
-    atexit.register(lambda: scheduler.shutdown())
+    return render_template("index.html", hr= heartRate['data']['heart_rate'])
 
 
 if __name__== "__main__":
     app.run(debug=True)
+
+# Shut down the scheduler when exiting the app
+atexit.register(lambda: scheduler.shutdown())

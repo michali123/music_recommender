@@ -1,13 +1,4 @@
-window.addEventListener("DOMContentLoaded", (event) => {
-    setInterval(() => {
-        const heartRate = mockHeartRate();
-        const songs = mockSongList();
 
-        handleHeartRate(heartRate);
-        handleSongList(songs);
-
-    }, 2000);
-});
 
 const handleHeartRate = (heartRate) => {
     console.log("HR:", heartRate)
