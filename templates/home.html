@@ -1,0 +1,31 @@
+
+{% include 'partials/head.html' %}
+
+
+<section id="woz-content">
+
+  <div class="container">
+    <form action = "http://localhost:5000/name" method = "POST" >
+      <label for="fname">Search for Artist:</label>
+      <input type="text" id="fname" name="fname"><br><br>
+      <input type="submit" value="Submit">
+    {% if results %}
+      {% for artist in results[:1] %}
+    <ul>
+      {% if artist.name %}
+      <li><a href="{{url_for('search', name=artist.name)}}">Search for {{artist.name}}</a></li>
+    
+      {% endif %}
+
+    </ul>
+    {% endfor %}
+   {% endif %}
+  </div>
+
+    </form>
+
+
+
+</section>
+
+{% include 'partials/foot.html' %}
