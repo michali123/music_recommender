@@ -3,8 +3,8 @@ import datetime
 from urllib.parse import urlencode
 import base64
 
-client_id = "3fa60b2c4d12433196915ed0092b5b93"
-client_secret = "284c97190e7e45a1a8995ba370baf2ab"
+client_id = ""
+client_secret = ""
 
 class SpotifyAPI(object):
     access_token = None
