@@ -1,82 +1,91 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>NextSong</title>
-    <!-- <link rel="stylesheet" href="../static/styles.css"> -->
-    <!-- flask picking up .css file -->
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles.css') }}">
-    <link rel="icon"  href="../static/images/logo.ico">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="{{url_for('static', filename='app.js')}}"></script>
-<script>
 
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-// Rendering heartRate every 2 seconds
-function reloadDIV()
-{
-    $( "#heart_rate" ).load(window.location.href + " #heart_rate" );
-}
+  <title>NextSong</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="../static/styles.css"> -->
+  <!-- flask picking up .css file -->
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}">
+  <link rel="icon" href="../static/images/logo.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{url_for('static', filename='app.js')}}"></script>
 
-$(document).ready(function()
-{
-    function refresh()
-    {
-        var div = $('#heart_rate'),
-            divHtml = div.html();
-
-        div.html(divHtml);
+  <script>
+    // Rendering heartRate every 2 seconds
+    function reloadDIV() {
+      $("#heart_rate").load(window.location.href + " #heart_rate");
     }
 
-    setInterval(function()
-    {
+    $(document).ready(function() {
+      function refresh() {
+        var div = $('#heart_rate'),
+          divHtml = div.html();
+
+        div.html(divHtml);
+      }
+
+      setInterval(function() {
         refresh()
         reloadDIV()
-    }, 2000); //2000 is 2 seconds in miliseconds
-})
+      }, 2000); //2000 is 2 seconds in miliseconds
+    })
 
-</script>
-  </head>
-  <body>
-    <div class="title">
-      <h1> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
-        smart music recommender, using machine learning.</h1>
+
+  </script>
+</head>
+
+<body>
+  <div class="title">
+    <h1> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
+      smart music recommender, using machine learning.</h1>
+
+  </div>
+  <div class="steps">
+
+    <a href="https://pulsoid.net/login"  target="_blank">
+             <img  class="step1" alt="Pulsoid" src="../static/images/1.png"
+             >
+          </a>
+    <img class="step2" src="../static/images/2.png" alt="step2">
+    <img class="step3" src="../static/images/3.png" alt="step3">
+    <img class="step4" src="../static/images/4.png" alt="step4">
+
+
+  </div>
+  <div class="recommender">
+    <h2>Your current queue: </h2>
+    <div id="playList">
 
     </div>
-    <div class="steps">
-      <img class="step1" src="../static/images/1.png" alt="step1">
-      <img class="step2" src="../static/images/2.png" alt="step2">
-      <img class="step3" src="../static/images/3.png" alt="step3">
-      <img class="step4" src="../static/images/4.png" alt="step4">
-
-
+    <div class="heart-rate">
+      <hr height="2px" width="20%">
+      <h2>Your current heart rate: <div id="heart_rate">{{hr}}</div>
+      </h2>
+      <img src="../static/images/heart.png" alt="heart">
     </div>
-    <div class="recommender">
-      <h2>Your current queue: </h2>
-      <div id="playList">
 
-      </div>
-  <div class="heart-rate">
-    <hr height="2px" width= "20%" >
-    <h2>Your current heart rate: <div id="heart_rate">{{hr}}</div> </h2>
-    <img src="../static/images/heart.png" alt="heart">
   </div>
 
-    </div>
 
 
+</body>
 
-  </body>
+<footer id="footer">
 
-  <footer id="footer">
+  <p>Made with ❤ by ©NextSong, 2021 <br />This is an open source project
+    <a href="https://github.com/michali123/music_recommender" target="_blank">GitHub</a>.
+  </p>
 
-    <p>Made with ❤ by ©NextSong, 2021 <br />This is an open source project
-    <a href="https://github.com/michali123/music_recommender" target="_blank" >GitHub</a>.</p>
-
-  </footer>
-
+</footer>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </html>
