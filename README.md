@@ -8,4 +8,4 @@ Clone project, and open index.html file.
 
 
 
-![image](C:\Users\stree\Desktop\Web Development\music_recommender\static\images\readme_screenshot.png)
+![This is an image](https://github.com/michali123/music_recommender/blob/cd1052abfbe285fc9c7fe13e9f1c2c0eb4b3601e/static/images/readme_screenshot.png)
