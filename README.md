@@ -7,6 +7,5 @@ Welcome to NextSong! smart music recommender, using machine learning.
 Clone project, and open index.html file.
 
 
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
 
-![image](https://user-images.githubusercontent.com/42022911/140468994-a9015a3a-626d-4e3f-977a-d03f9fef4a7a.png)
+![image](C:\Users\stree\Desktop\Web Development\music_recommender\static\images\readme_screenshot.png)
