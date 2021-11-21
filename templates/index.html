@@ -15,12 +15,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
   <script src="{{url_for('static', filename='app.js')}}"></script>
 
   <script>
     // Rendering heartRate every 2 seconds
-    function reloadDIV() {
+    function reloadBPM() {
       $("#heart_rate").load(window.location.href + " #heart_rate");
     }
 
@@ -34,9 +36,26 @@
 
       setInterval(function() {
         refresh()
-        reloadDIV()
+        reloadBPM()
       }, 2000); //2000 is 2 seconds in miliseconds
     })
+
+    // function reloadStatusBadges() {
+    //   $("#status").load(window.location.href + " #status");
+    // }
+    // $(document).ready(function() {
+    //   function refresh() {
+    //     var p = $('#status'),
+    //       pHtml = p.html();
+    //
+    //     p.html(divHtml);
+    //   }
+    //
+    //   setInterval(function() {
+    //     refresh()
+    //     reloadStatusBadges()
+    //   }, 1000); //2000 is 2 seconds in miliseconds
+    // })
 
 
   </script>
@@ -44,30 +63,82 @@
 
 <body>
   <div class="title">
-    <h1> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
+    <h1 style="color:white"> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
       smart music recommender, using machine learning.</h1>
 
   </div>
-  <div class="steps">
 
-    <a href="https://pulsoid.net/login"  target="_blank">
-             <img  class="step1" alt="Pulsoid" src="../static/images/1.png"
-             >
-          </a>
-    <img class="step2" src="../static/images/2.png" alt="step2">
-    <img class="step3" src="../static/images/3.png" alt="step3">
-    <img class="step4" src="../static/images/4.png" alt="step4">
+  <section id="features">
+    <div class="row">
 
-
+      <div class="card " style="width: 18rem;">
+  <img class="card-img-top" src="..\static\images\bluetooth.png" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">Connect the heart rate device using Pulsoid app</h5>
+    <!-- <p class="card-text">Connect the heart rate device using Pulsoid app</p> -->
+    <a href="https://pulsoid.net/login" target="_blank" class="btn btn-dark">Login to Pulsoid</a>
   </div>
+  {% if checkSpotify==True %}
+  <p class="badge badge-dark">Status: Connected! </p>
+  {% endif %}
+  {% if checkSpotify==False %}
+  <p class="badge badge-dark">Status: Waiting for connection </p>
+  {% endif %}
+
+</div>
+
+<div class="card ml-auto" style="width: 18rem;">
+<img class="card-img-top" src="..\static\images\spotify.png" alt="Card image cap">
+<div class="card-body">
+<h5 class="card-title">Connecting Spotify to NextSong</h5>
+<p></p>
+<a href="https://accounts.spotify.com/en/status" target="_blank" class="btn btn-dark">Login to Spotify</a>
+</div>
+{% if checkPulsoid==True %}
+<p class="badge badge-dark">Status: Connected! </p>
+{% endif %}
+{% if checkPulsoid==False %}
+<p class="badge badge-dark">Status: Waiting for connection </p>
+{% endif %}
+
+</div>
+
+<div class="card ml-auto" style="width: 18rem;">
+<img class="card-img-top" src="..\static\images\Rectangle 40.png" alt="Card image cap">
+<div class="card-body">
+<h5 class="card-title">NextSong is searching for your next perfect song for you!</h5>
+<!-- <p class="card-text">NextSong is searching for your next perfect song for you!</p> -->
+<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+</div>
+<p class="badge badge-dark">Status: </p>
+
+</div>
+
+<div class="card ml-auto  " style="width: 18rem;">
+<img class="card-img-top" src="..\static\images\listening.png" alt="Card image cap">
+<div class="card-body">
+<h5 class="card-title">Enjoy listening!</h5>
+<!-- <p class="card-text">Enjoy listening!</p> -->
+<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+</div>
+<p class="badge badge-dark">Status: </p>
+<i class="fab fa-spotify"></i>
+</div>
+
+    </div>
+
+  </section>
+
+
+
   <div class="recommender">
-    <h2>Your current queue: </h2>
+    <h2 style="color:white">Your current queue: </h2>
     <div id="playList">
 
     </div>
     <div class="heart-rate">
       <hr height="2px" width="20%">
-      <h2>Your current heart rate: <div id="heart_rate">{{hr}}</div>
+      <h2 style="color:white">Your current heart rate: <div id="heart_rate">{{hr}} BPM</div>
       </h2>
       <img src="../static/images/heart.png" alt="heart">
     </div>
