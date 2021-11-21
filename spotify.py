@@ -2,9 +2,10 @@ import requests
 import datetime
 from urllib.parse import urlencode
 import base64
+from config import CLIENT_ID,CLIENT_SECRET
 
-client_id = "3fa60b2c4d12433196915ed0092b5b93"
-client_secret = "284c97190e7e45a1a8995ba370baf2ab"
+client_id = CLIENT_ID
+client_secret = CLIENT_SECRET
 
 class SpotifyAPI(object):
     access_token = None
@@ -108,5 +109,5 @@ def get_spotify_connnection_stauts():
     if spotify.perform_auth():
         print("Connected!")
         return True
-    print("Please connect you account to login")
+    print("Please connect your Spotify account to login")
     return False

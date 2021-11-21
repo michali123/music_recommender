@@ -57,7 +57,6 @@
     //   }, 1000); //2000 is 2 seconds in miliseconds
     // })
 
-
   </script>
 </head>
 
@@ -90,7 +89,7 @@
 <div class="card ml-auto" style="width: 18rem;">
 <img class="card-img-top" src="..\static\images\spotify.png" alt="Card image cap">
 <div class="card-body">
-<h5 class="card-title">Connecting Spotify to NextSong</h5>
+<h5 class="card-title">Connect Spotify to NextSong</h5>
 <p></p>
 <a href="https://accounts.spotify.com/en/status" target="_blank" class="btn btn-dark">Login to Spotify</a>
 </div>
@@ -114,15 +113,14 @@
 
 </div>
 
-<div class="card ml-auto  " style="width: 18rem;">
-<img class="card-img-top" src="..\static\images\listening.png" alt="Card image cap">
+<div class="card ml-auto" style="width: 18rem;">
+<img class="card-img w-auto" src="..\static\images\listening.png" alt="Card image cap">
 <div class="card-body">
-<h5 class="card-title">Enjoy listening!</h5>
+<h5 id= "sticker" class="card-title">Enjoy listening!</h5>
 <!-- <p class="card-text">Enjoy listening!</p> -->
 <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
 </div>
-<p class="badge badge-dark">Status: </p>
-<i class="fab fa-spotify"></i>
+<!-- <p class="badge badge-dark">Status: </p> -->
 </div>
 
     </div>
@@ -138,7 +136,7 @@
     </div>
     <div class="heart-rate">
       <hr height="2px" width="20%">
-      <h2 style="color:white">Your current heart rate: <div id="heart_rate">{{hr}} BPM</div>
+      <h2 style="color:white">Your current heart rate:<div id="heart_rate">{{hr}} BPM</div>
       </h2>
       <img src="../static/images/heart.png" alt="heart">
     </div>

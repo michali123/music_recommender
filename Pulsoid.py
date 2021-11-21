@@ -1,11 +1,11 @@
 from flask import Flask
 from flask import render_template, request, jsonify
 import requests, json
-
+from config import BEARER
 
 def getPulsoidToken():
     headers = {
-    'Authorization': 'Bearer 52fb90c7-0c50-4927-89a3-db12802ee857',
+    'Authorization': BEARER,
     'Content-Type': 'application/json',
     }
     response = requests.get('https://dev.pulsoid.net/api/v1/token/validate', headers=headers)

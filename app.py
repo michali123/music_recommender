@@ -7,6 +7,8 @@ from apscheduler.schedulers.background import BackgroundScheduler
 from flask_apscheduler import APScheduler
 from spotify import *
 from Pulsoid import *
+from config import *
+
 # from secrets import PULSOID_SECRET_KEY
 
 app = Flask(__name__)
