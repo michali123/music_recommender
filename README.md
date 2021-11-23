@@ -5,19 +5,16 @@ Welcome to NextSong! smart music recommender, using machine learning.
 ### Install Locally:
 Install the necessary Python packages by running:
 
-<code> $ pip install -r requirements.txt>
+<code> $ pip install -r requirements.txt> </code>
 
 ### Run Locally
 Export the environment variables:
 
 <code> $ export SPOTIFY_AUTHORIZATION_TOKEN=value_grabbed_from_spotify
 
-
-
 <code> $ export SPOTIFY_USER_ID=value_grabbed_from_spotify
 
 go to the colned project folder and run the entry-point script in cmd/termial:
-
 <code> python app.py
 
 
