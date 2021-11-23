@@ -76,10 +76,21 @@ SEARCH_ENDPOINT = 'https://api.spotify.com/v1/search'
 RELATED_ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/artists/{id}/related-artists'
 TOP_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/artists/{id}/top-tracks'
 
+
+audio_features = []
+
+def search_audio_features(id):
+    SEARCH_ENDPOINT = 'https://api.spotify.com/v1/audio-features/{}'
+    SEARCH_ENDPOINT = SEARCH_ENDPOINT.format(id)
+    #resp = spotify.search(q="artist:{}".format(name) + " track:{}".format(track), type="track")
+    resp = requests.get(SEARCH_ENDPOINT, headers = headers)
+    return resp.json()
+
 # https://developer.spotify.com/web-api/get-artist/
 def get_artist(artist_id):
     url = GET_ARTIST_ENDPOINT.format(id=artist_id)
     resp = requests.get(url,headers = headers)
+    print()
     return resp.json()
 
 
@@ -105,9 +116,19 @@ def get_artist_top_tracks(artist_id, country='US'):
     return resp.json()
 
 
+
 def get_spotify_connnection_stauts():
     if spotify.perform_auth():
         print("Connected!")
         return True
     print("Please connect your Spotify account to login")
     return False
+
+
+PLAYLIST_ENDPOINT = "https://api.spotify.com/v1/playlists/{playlist_id}"
+# https://developer.spotify.com/web-api/get-artists-top-tracks/
+def get_playlist(playlist_id, country='US'):
+    url = PLAYLIST_ENDPOINT.format(playlist_id=playlist_id)
+    myparams = {'country': country}
+    resp = requests.get(url, params=myparams,headers = headers)
+    return resp.json()
