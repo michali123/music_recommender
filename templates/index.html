@@ -56,7 +56,6 @@
     //     reloadStatusBadges()
     //   }, 1000); //2000 is 2 seconds in miliseconds
     // })
-
   </script>
 </head>
 
@@ -71,73 +70,66 @@
     <div class="row">
 
       <div class="card " style="width: 18rem;">
-  <img class="card-img-top" src="..\static\images\bluetooth.png" alt="Card image cap">
-  <div class="card-body">
-    <h5 class="card-title">Connect the heart rate device using Pulsoid app</h5>
-    <!-- <p class="card-text">Connect the heart rate device using Pulsoid app</p> -->
-    <a href="https://pulsoid.net/login" target="_blank" class="btn btn-dark">Login to Pulsoid</a>
-  </div>
-  {% if checkPulsoid==True %}
-  <p class="badge badge-dark">Status: Connected! </p>
-  {% endif %}
-  {% if checkPulsoid==False %}
-  <p class="badge badge-dark">Status: Waiting for connection </p>
-  {% endif %}
+        <img class="card-img-top" src="..\static\images\bluetooth.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Connect the heart rate device using Pulsoid app</h5>
+          <!-- <p class="card-text">Connect the heart rate device using Pulsoid app</p> -->
+          <a href="https://pulsoid.net/login" target="_blank" class="btn btn-dark">Login to Pulsoid</a>
+        </div>
+        {% if checkPulsoid==True %}
+        <p class="badge badge-dark">Status: Connected! </p>
+        {% endif %}
+        {% if checkPulsoid==False %}
+        <p class="badge badge-dark">Status: Waiting for connection </p>
+        {% endif %}
 
-</div>
+      </div>
 
-<div class="card ml-auto" style="width: 18rem;">
-<img class="card-img-top" src="..\static\images\spotify.png" alt="Card image cap">
-<div class="card-body">
-<h5 class="card-title">Connect Spotify to NextSong</h5>
-<p></p>
-<a href="/login" target="_blank" class="btn btn-dark">Login to Spotify</a>
-</div>
-{% if checkSpotify==True %}
-<p class="badge badge-dark">Status: Connected! </p>
-{% endif %}
-{% if checkSpotify==False %}
-<p class="badge badge-dark">Status: Waiting for connection </p>
-{% endif %}
+      <div class="card ml-auto" style="width: 18rem;">
+        <img class="card-img-top" src="..\static\images\spotify.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Connect Spotify to NextSong</h5>
+          <p></p>
+          <a href="/login" target="_blank" class="btn btn-dark">Login + Generate Playlist</a>
+        </div>
+      </div>
 
-</div>
-
-<div class="card ml-auto" style="width: 18rem;">
-<img class="card-img-top" src="..\static\images\Rectangle 40.png" alt="Card image cap">
-<div class="card-body">
-<h5 class="card-title">NextSong is searching for your next perfect song for you!</h5>
-<!-- <p class="card-text">NextSong is searching for your next perfect song for you!</p> -->
-<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-</div>
-<p class="badge badge-dark">Status: </p>
-
-</div>
-
-<div class="card ml-auto" style="width: 18rem;">
-<img class="card-img w-auto" src="..\static\images\listening.png" alt="Card image cap">
-<div class="card-body">
-<h5 id= "sticker" class="card-title">Enjoy listening!</h5>
-<!-- <p class="card-text">Enjoy listening!</p> -->
-<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
-</div>
-<!-- <p class="badge badge-dark">Status: </p> -->
-</div>
-
+      <div class="card ml-auto" style="width: 18rem;">
+        <img class="card-img-top" src="..\static\images\Rectangle 40.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">NextSong is curating Spotify playlist for you!</h5>
+          <!-- <p class="card-text">NextSong is searching for your next perfect song for you!</p> -->
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+        <!-- </div>
+        <p class="badge badge-dark">Status: </p> -->
     </div>
+  </div>
+
+      <div class="card ml-auto" style="width: 18rem;">
+        <img class="card-img w-auto" src="..\static\images\listening.png" alt="Card image cap">
+        <div class="card-body">
+          <h5 id="sticker" class="card-title">Enjoy listening!</h5>
+          <p class="card-text">Enjoy listening!</p>
+          <!-- <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+       <p class="badge badge-dark">Status: </p> -->
+      </div>
+
+</div>
 
   </section>
 
 
 
-  <div class="recommender">
+  <!-- <div class="recommender">
     <h2 style="color:white">Your current queue: </h2>
-    </div>
-    <div class="heart-rate">
-      <hr height="2px" width="20%">
-      <h2 style="color:white">Your current heart rate:<div id="heart_rate">{{hr}} BPM</div>
-      </h2>
-      <img src="../static/images/heart.png" alt="heart">
-    </div>
+  </div> -->
+  <div class="heart-rate">
+    <hr height="2px" width="20%">
+    <h2 style="color:white">Your current heart rate:<div id="heart_rate">{{hr}} BPM</div>
+    </h2>
+    <img src="../static/images/heart.png" alt="heart">
+  </div>
 
   </div>
 
@@ -156,4 +148,5 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <div>Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="Stickers">Stickers</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
 </html>
