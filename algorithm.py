@@ -29,6 +29,6 @@ def regr(features, Predictions):
             liveness_index = lst_keys.index("liveness")
 
             Predictions.append(reg.predict([[lst_values[tempo_index],lst_values[acousticness_index],lst_values[danceability_index],lst_values[energy_index],lst_values[instrumentalness_index],lst_values[liveness_index],lst_values[loudness_index],lst_values[valence_index]]]))
-            print(Predictions)
+
         return Predictions
         
