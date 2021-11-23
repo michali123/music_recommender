@@ -77,10 +77,10 @@
     <!-- <p class="card-text">Connect the heart rate device using Pulsoid app</p> -->
     <a href="https://pulsoid.net/login" target="_blank" class="btn btn-dark">Login to Pulsoid</a>
   </div>
-  {% if checkSpotify==True %}
+  {% if checkPulsoid==True %}
   <p class="badge badge-dark">Status: Connected! </p>
   {% endif %}
-  {% if checkSpotify==False %}
+  {% if checkPulsoid==False %}
   <p class="badge badge-dark">Status: Waiting for connection </p>
   {% endif %}
 
@@ -91,12 +91,12 @@
 <div class="card-body">
 <h5 class="card-title">Connect Spotify to NextSong</h5>
 <p></p>
-<a href="https://accounts.spotify.com/en/status" target="_blank" class="btn btn-dark">Login to Spotify</a>
+<a href="/login" target="_blank" class="btn btn-dark">Login to Spotify</a>
 </div>
-{% if checkPulsoid==True %}
+{% if checkSpotify==True %}
 <p class="badge badge-dark">Status: Connected! </p>
 {% endif %}
-{% if checkPulsoid==False %}
+{% if checkSpotify==False %}
 <p class="badge badge-dark">Status: Waiting for connection </p>
 {% endif %}
 
@@ -131,8 +131,6 @@
 
   <div class="recommender">
     <h2 style="color:white">Your current queue: </h2>
-    <div id="playList">
-
     </div>
     <div class="heart-rate">
       <hr height="2px" width="20%">
@@ -157,4 +155,5 @@
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div>Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="Stickers">Stickers</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </html>

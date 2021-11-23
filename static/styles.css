@@ -103,8 +103,11 @@ img{
   background: #F6ECF0;
   padding: 20px;
   margin: 0;
+}
+.sticker{
+  margin-left:50px 
 
+}
   /* margin-top: 60px;
   padding-top: 50px;
   padding-bottom: 20px; */
-}
