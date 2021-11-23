@@ -12,6 +12,7 @@ import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 from config import CLIENT_ID, CLIENT_SECRET
 from json2html import *
+import threading
 
 app = Flask(__name__)
 
@@ -23,6 +24,7 @@ app.secret_key = "rfgt535"
 def index():
     tokenData = getPulsoidToken()
     print(tokenData['scopes'][0])
+    getPulsoidHR()  
     heartRate = getPulsoidHR()
     access_token = getTokenInfo()
     if access_token:
@@ -101,63 +103,8 @@ def create_spotify_oauth():
         scope="user-top-read user-read-recently-played user-library-read user-read-currently-playing playlist-read-collaborative playlist-read-private playlist-modify-public user-modify-playback-state user-read-playback-state")
 
 
-@app.route('/artist/<id>')
-def artist(id):
-    artist = spotify.get_artist(id)
-    if artist['images']:
-        image_url = artist['images'][0]['url']
-    else:
-        image_url = 'http://placecage.com/600/400'
-
-    tracksdata = spotify.get_artist_top_tracks(id)
-    tracks = tracksdata['tracks']
-
-    artistsdata = spotify.get_related_artists(id)
-
-    audio_features = []
-
-    for i in range(9):
-        for k, v in tracks[i].items():
-            if k == "id":
-                audio_features.append(search_audio_features(v))
-
-    predictions_list = []
-    regr(audio_features, predictions_list)
-
-    tokenData = getPulsoidToken()
-    heartRate = getPulsoidHR()
-
-    relartists = artistsdata['artists']
-    html = render_template('index.html',
-                           hr=heartRate,
-                           checkSpotify=get_spotify_connnection_stauts(),
-                           checkPulsoid=getPulsoidConnecetionStatus(),
-                           artist=artist,
-                           related_artists=relartists,
-                           image_url=image_url,
-                           tracks=tracks,
-                           predictions_list=predictions_list)
-    return html
-
-
-@app.route('/name', methods=["POST"])
-def namee():
-    result = request.form["fname"]
-    data = spotify.search_by_artist_name(result)
-    api_url = data['artists']['href']
-    items = data['artists']['items']
-    print(items[0])
-    tokenData = getPulsoidToken()
-    heartRate = getPulsoidHR()
-
-    html = render_template('index.html', hr=heartRate,
-                           checkSpotify=get_spotify_connnection_stauts(),
-                           checkPulsoid=getPulsoidConnecetionStatus(), results=items)
-
-    return html
-
-
 if __name__ == "__main__":
+
     app.run(debug=True)
 
 # Shut down the scheduler when exiting the app
