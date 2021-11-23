@@ -10,12 +10,12 @@ Install the necessary Python packages by running:
 ### Run Locally
 Export the environment variables:
 
-<code> $ export SPOTIFY_AUTHORIZATION_TOKEN=value_grabbed_from_spotify
+<code> $ export SPOTIFY_AUTHORIZATION_TOKEN=value_grabbed_from_spotify</code>
 
-<code> $ export SPOTIFY_USER_ID=value_grabbed_from_spotify
+<code> $ export SPOTIFY_USER_ID=value_grabbed_from_spotify</code>
 
 go to the colned project folder and run the entry-point script in cmd/termial:
-<code> python app.py
+<code> python app.py</code>
 
 
 
