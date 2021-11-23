@@ -6,7 +6,7 @@ Welcome to NextSong! smart music recommender, using machine learning.
 Install the necessary Python packages by running:
 
 '''
-$ pip install -r requirements.txt
+<$ pip install -r requirements.txt>
 
 '''
 
