@@ -5,10 +5,9 @@ Welcome to NextSong! smart music recommender, using machine learning.
 ### Install Locally:
 Install the necessary Python packages by running:
 
-'''
-<$ pip install -r requirements.txt>
+<code> $ pip install -r requirements.txt>
 
-'''
+
 
 
 ### Run Locally
