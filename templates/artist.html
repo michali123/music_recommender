@@ -5,6 +5,9 @@
 <section id="woz-content">
   <div class="container">
     <section class="sec">
+      <a href="http://localhost:5000">
+        Return to Main Page
+      </a>
         <h1 class="page-title">{{artist.name}}</h1>
           <a href="{{artist.external_urls.spotify}}">
                   {{artist.name}} on Spotify
@@ -25,7 +28,7 @@
                     {% for a in related_artists %}
                         {% if a.images %}
                           <div class="col-xs-4">
-                            <a href="{{url_for('artist',id=a.id) }}">
+                            <a href="{{url_for('index',id=a.id) }}">
                               <img src="{{a.images[-1].url}}" alt="" class="bobby img-thumbnail img-circle">
                             </a>
                           </div>

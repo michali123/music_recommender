@@ -2,9 +2,10 @@ import requests
 import datetime
 from urllib.parse import urlencode
 import base64
+from config import CLIENT_ID,CLIENT_SECRET
 
-client_id = ""
-client_secret = ""
+client_id = CLIENT_ID
+client_secret = CLIENT_SECRET
 
 class SpotifyAPI(object):
     access_token = None
@@ -13,7 +14,7 @@ class SpotifyAPI(object):
     client_id = None
     client_secret = None
     token_url = "https://accounts.spotify.com/api/token"
-    
+
     def __init__(self, client_id, client_secret, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.client_id = client_id
@@ -30,18 +31,18 @@ class SpotifyAPI(object):
         client_creds = f"{client_id}:{client_secret}"
         client_creds_b64 = base64.b64encode(client_creds.encode())
         return client_creds_b64.decode()
-    
+
     def get_token_headers(self):
         client_creds_b64 = self.get_client_credentials()
         return {
             "Authorization": f"Basic {client_creds_b64}"
         }
-    
+
     def get_token_data(self):
         return {
             "grant_type": "client_credentials"
-        } 
-    
+        }
+
     def perform_auth(self):
         token_url = self.token_url
         token_data = self.get_token_data()
@@ -59,9 +60,11 @@ class SpotifyAPI(object):
         self.access_token_did_expire = expires < now
         return True
 
+
+
 spotify = SpotifyAPI(client_id, client_secret)
 spotify.perform_auth()
-       
+
 access_token = spotify.access_token
 
 headers = {
@@ -73,10 +76,21 @@ SEARCH_ENDPOINT = 'https://api.spotify.com/v1/search'
 RELATED_ARTISTS_ENDPOINT = 'https://api.spotify.com/v1/artists/{id}/related-artists'
 TOP_TRACKS_ENDPOINT = 'https://api.spotify.com/v1/artists/{id}/top-tracks'
 
+
+audio_features = []
+
+def search_audio_features(id):
+    SEARCH_ENDPOINT = 'https://api.spotify.com/v1/audio-features/{}'
+    SEARCH_ENDPOINT = SEARCH_ENDPOINT.format(id)
+    #resp = spotify.search(q="artist:{}".format(name) + " track:{}".format(track), type="track")
+    resp = requests.get(SEARCH_ENDPOINT, headers = headers)
+    return resp.json()
+
 # https://developer.spotify.com/web-api/get-artist/
 def get_artist(artist_id):
     url = GET_ARTIST_ENDPOINT.format(id=artist_id)
     resp = requests.get(url,headers = headers)
+    print()
     return resp.json()
 
 
@@ -87,7 +101,16 @@ def search_by_artist_name(name):
     resp = requests.get(SEARCH_ENDPOINT, params=myparams,headers = headers)
     return resp.json()
 
+def search_by_artist_name_to_get_id(name):
+    myparams = {'type': 'artist'}
+    myparams['q'] = name
+    resp = requests.get(SEARCH_ENDPOINT, params=myparams,headers = headers)
+    resp = resp.json().get('artists').get('items')[0]
+    for v_k, v_v in resp.items():
+            if v_k == "id":
+                return v_v
 
+                
 # https://developer.spotify.com/web-api/get-related-artists/
 def get_related_artists(artist_id):
     url = RELATED_ARTISTS_ENDPOINT.format(id=artist_id)
@@ -102,3 +125,19 @@ def get_artist_top_tracks(artist_id, country='US'):
     return resp.json()
 
 
+
+def get_spotify_connnection_stauts():
+    if spotify.perform_auth():
+        print("Connected!")
+        return True
+    print("Please connect your Spotify account to login")
+    return False
+
+
+PLAYLIST_ENDPOINT = "https://api.spotify.com/v1/playlists/{playlist_id}"
+# https://developer.spotify.com/web-api/get-artists-top-tracks/
+def get_playlist(playlist_id, country='US'):
+    url = PLAYLIST_ENDPOINT.format(playlist_id=playlist_id)
+    myparams = {'country': country}
+    resp = requests.get(url, params=myparams,headers = headers)
+    return resp.json()

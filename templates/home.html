@@ -8,6 +8,8 @@
     <form action = "http://localhost:5000/name" method = "POST" >
       <label for="fname">Search for Artist:</label>
       <input type="text" id="fname" name="fname"><br><br>
+      <label for="ftrack">Search for Track:</label>
+      <input type="text" id="ftrack" name="ftrack"><br><br>
       <input type="submit" value="Submit">
     {% if results %}
       {% for artist in results[:1] %}
@@ -18,9 +20,20 @@
       {% endif %}
 
     </ul>
-    {% endfor %}
-   {% endif %}
+  
   </div>
+
+  {% if result_track %}
+<ul>
+  
+  <li><a href="{{url_for('search', name=result_track)}}">  Track:{{result_track}}</a></li>
+
+  {% endif %}
+
+</ul>
+{% endfor %}
+{% endif %}
+</div>
 
     </form>
 
