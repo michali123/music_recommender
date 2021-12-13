@@ -7,13 +7,52 @@ body{
   background-color: #F6ECF0;
 
 }
-.title{
-  font-family: 'Montserrat', sans-serif;
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+
+th,td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: olivedrab;
+    border-color: black;
+    border-width: 2;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.ui-helper-center {
   text-align: center;
-  background: #D35D6E;
+}
+
+.title{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 15px;
+  background-color: rgb(179, 105, 127);
   margin-bottom: 0;
   padding-bottom: 20px;
 
+}
+.pics {
+  background-image:url('C:\\Users\\abelf\\Downloads\\music_recommender\\static\\pulse.jpg');
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+#floater {
+  position: absolute;
+  top: 100px;
+  right: 1px;
+  width: 100px;
+  height: 100px;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  z-index: 1;
 }
 
 .col-xs-4 {
@@ -25,6 +64,9 @@ body{
   width: 33.333333%;
 }
 
+th, td {
+
+}
 
 h1{
   padding-top:  20px;
