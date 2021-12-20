@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Recommender Machine</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="../static/styles.css"> -->
+    <!-- flask picking up .css file -->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}">
+    <link rel="icon" href="../static/images/logo.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
+  </head>
+
+
+  <body style = "background-image:url('../static/images/chors.gif'); background-repeat: no-repeat; background-attachment: fixed;
+  background-size: cover;" >
+    <div class="title">
+      <h1 style="color:white"> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
+        smart music recommender, using machine learning.</h1>
+
+    </div>
+
+<div class="report">
+
+{% if playlist_embed_link %}
+<h1>Success! NextSong generetaed a playlist for you!</h1>
+<a href="{{playlist_embed_link}}" target="_blank" class="btn btn-dark">Go to playlist</a>
+<a href="{{ url_for('index') }}" class="btn btn-dark">Go back to home page</a>
+{% else %}
+<h1>Oops! NextSong ran into issues while attempting generating your playlist.</h1>
+<p>please report to the team. Thank you for understanding</p>
+<a href="{{ url_for('index') }}" target="_blank" class="btn btn-dark">Go back to home page</a>
+
+{% endif %}
+</div>
+
+<div class="sticker">
+  <img src="../static/images/guitar.png" alt="guitar">
+
+</div>
+  </body>
+  <footer id="footer">
+
+    <p>Made with ❤ by ©NextSong, 2021 <br />This is an open source project
+      <a href="https://github.com/michali123/music_recommender" target="_blank">GitHub</a>.
+    </p>
+
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="{{url_for('static', filename='app.js')}}"></script>
+
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<div>Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="Stickers">Stickers</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>

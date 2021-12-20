@@ -1,0 +1,160 @@
+
+body{
+  /* margin: 0;
+  padding: 0; */
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background-color: #F6ECF0;
+
+}
+table {
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+
+th,td {
+    border-collapse: collapse;
+    border-spacing: 0;
+    background-color: olivedrab;
+    border-color: black;
+    border-width: 2;
+    border: 1px solid black;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.ui-helper-center {
+  text-align: center;
+}
+
+.title{
+  font-family: 'Times New Roman', Times, serif;
+  text-align: center;
+  font-size: 15px;
+  background-color: rgb(179, 105, 127);
+  margin-bottom: 0;
+  padding-bottom: 20px;
+
+}
+.pics {
+  background-image:url('C:\\Users\\abelf\\Downloads\\music_recommender\\static\\pulse.jpg');
+  background-attachment:fixed;
+  background-repeat: no-repeat;
+  background-size: cover; 
+}
+
+#floater {
+  position: absolute;
+  top: 100px;
+  right: 1px;
+  width: 100px;
+  height: 100px;
+  -webkit-transition: all 2s ease-in-out;
+  transition: all 2s ease-in-out;
+  z-index: 1;
+}
+
+.col-xs-4 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  float: left;
+  width: 33.333333%;
+}
+
+th, td {
+
+}
+
+h1{
+  padding-top:  20px;
+  padding-bottom: 10px;
+
+}
+
+.projectName{
+  font-family: 'Ubuntu';
+  font-size: 2em;
+
+}
+
+#features{
+  background-color: #F6ECF0;
+
+}
+.card{
+  background-color: #D35D6E;
+}
+
+.card-img-top{
+  height: 180px;
+  width: 180px;
+  margin-left: auto;
+ margin-right: auto;
+
+}
+.row{
+  text-align: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+
+}
+
+.badge{
+  font-size: 18px
+}
+
+.card-title{
+  font-weight: normal;
+}
+
+#sticker{
+  height: 250px;
+  width: 250px;
+
+}
+h2{
+}
+
+.recommender{
+  padding:  20px;
+  background-color: #D35D6E
+}
+
+
+.heart-rate{
+
+  /* margin-top: 20px; */
+  background-color: #D35D6E
+}
+
+hr{
+    border: 2;
+    text-align: center;
+
+}
+
+img{
+  margin-top: 20px;
+  margin-right: 30px;
+  border: none;
+
+}
+
+
+
+#footer{
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  background: #F6ECF0;
+  padding: 20px;
+  margin: 0;
+
+  /* margin-top: 60px;
+  padding-top: 50px;
+  padding-bottom: 20px; */
+}

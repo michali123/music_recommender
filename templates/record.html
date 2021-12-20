@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+	<title>NextSong</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<!-- <link rel="stylesheet" href="../static/styles.css"> -->
+	<!-- flask picking up .css file -->
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles.css') }}">
+	<link rel="icon" href="../static/images/logo.ico">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Lakki+Reddy&family=Montserrat&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400;500;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+	<script src="apps.js"></script>
+	<script src="{{url_for('static', filename='app.js')}}"></script>
+
+	<script>
+		// Rendering heartRate every 2 seconds
+		function reloadBPM() {
+			$("#heart_rate").load(window.location.href + " #heart_rate");
+		}
+
+		$(document).ready(function() {
+			function refresh() {
+				var div = $('#heart_rate'),
+					divHtml = div.html();
+
+				div.html(divHtml);
+			}
+
+			setInterval(function() {
+				refresh()
+				reloadBPM()
+			}, 2000); //2000 is 2 seconds in miliseconds
+		})
+
+		// function reloadStatusBadges() {
+		//   $("#status").load(window.location.href + " #status");
+		// }
+		// $(document).ready(function() {
+		//   function refresh() {
+		//     var p = $('#status'),
+		//       pHtml = p.html();
+		//
+		//     p.html(divHtml);
+		//   }
+		//
+		//   setInterval(function() {
+		//     refresh()
+		//     reloadStatusBadges()
+		//   }, 1000); //2000 is 2 seconds in miliseconds
+		// })
+	</script>
+
+
+</head>
+
+<body style="background-image: url('../static/images/title.gif');">
+
+	<div class="title">
+		<h1 style="color:white"> <span class="projectName">NextSong</span><br style="margin : 0; padding-top:0;">
+			smart music recommender, using machine learning.</h1>
+
+	</div>
+
+	<section id="features" style="background-image: url('../static/images/title.gif')" style="backgroucolor: yellow">
+		<div class="row">
+
+			<div class="card " style="width: 18rem;">
+				<img class="card-img-top" src="..\static\images\bluetooth.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Connect the heart rate device using Pulsoid app</h5>
+					<!-- <p class="card-text">Connect the heart rate device using Pulsoid app</p> -->
+					<a href="https://pulsoid.net/login" target="_blank" class="btn btn-dark">Login to Pulsoid</a>
+				</div>
+				{% if checkSpotify==True %}
+				<p class="badge badge-dark">Status: Connected! </p>
+				{% endif %}
+				{% if checkSpotify==False %}
+				<p class="badge badge-dark">Status: Waiting for connection </p>
+				{% endif %}
+
+			</div>
+
+			<div class="card ml-auto" style="width: 18rem;">
+				<img class="card-img-top" src="..\static\images\spotify.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Connect Spotify to NextSong</h5>
+					<p></p>
+					<a href="/login" target="_blank" class="btn btn-dark">Login + Generate Random Playlist</a>
+
+
+
+					<form class="card-body" action="/playlistRecommender-artist" method="POST">
+						<br><label for="fname">Search for Artist to generate Custom playlist:</label>
+						<input type="text" id="fname_playlist" name="fplaylist"></input>
+						<input type="submit" value="Submit">
+					</form>
+				</div>
+			</div>
+
+			<div class="card ml-auto" style="width: 18rem;">
+				<img class="card-img-top" src="..\static\images\spotify.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">Connect Spotify to NextSong</h5>
+					<p></p>
+					<a href="https://accounts.spotify.com/en/status" target="_blank" class="btn btn-dark">Login to Spotify</a>
+
+
+					{% if not results %}
+					<form class="card-body" action="http://localhost:5000/name" method="POST">
+						<label for="fname">Search for Artist:</label>
+						<input type="text" id="fname" name="fname"><br><br>
+						<input type="submit" value="Submit">
+					</form>
+					{% endif %}
+
+
+				</div>
+
+				{% if checkPulsoid==True %}
+				<p class="badge badge-dark">Status: Connected! </p>
+				{% endif %}
+				{% if checkPulsoid==False %}
+				<p class="badge badge-dark">Status: Waiting for connection </p>
+				{% endif %}
+
+			</div>
+
+			<div class="card ml-auto" style="width: 18rem;">
+				<img class="card-img-top" src="..\static\images\Rectangle 40.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 class="card-title">NextSong is searching for your next perfect song for you!</h5>
+					<!-- <p class="card-text">NextSong is searching for your next perfect song for you!</p> -->
+					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+					<button class="badge badge-dark"> HEART RATE MODEL</button>
+
+
+
+					<!-- inserting these scripts at the end to be able to use all the elements in the DOM -->
+
+
+					{% if tracks %}
+					<p class="badge badge-dark">Status: Connected</p><br>
+					<p class="badge badge-dark">10 SONGS FOUND</p>
+
+					{% for t in tracks %}
+
+					<h5> {{t.name}} </h5>
+
+					{% endfor %}
+					{% else %}
+					<p class="badge badge-dark">Status: </p>
+					{% endif %}
+				</div>
+
+			</div>
+
+			<div class="card ml-auto" style="width: 18rem;">
+				<img class="card-img w-auto" src="..\static\images\listening.png" alt="Card image cap">
+				<div class="card-body">
+					<h5 id="sticker" class="card-title">Enjoy listening!</h5>
+					<!-- <p class="card-text">Enjoy listening!</p> -->
+					<!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
+				</div>
+				<!-- <p class="badge badge-dark">Status: </p> -->
+			</div>
+
+		</div>
+
+	</section>
+	{% if results %}
+
+	<table class="search-results table table-condensed table-striped">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Genre</th>
+				<th>Followers</th>
+				<th>Popularity</th>
+			</tr>
+		</thead>
+
+		{% for artist in results[:1] %}
+		<tr>
+			<td>
+				{% if artist.images %}
+				<img src="{{artist.images[-1].url}}" alt="{{artist.name}}" class="bobby img-circle">
+				{% endif %}
+				<a href="{{ url_for('artist', id=artist.id)}}">
+					{{ artist.name }}
+				</a>
+			</td>
+			<td>
+				{{ artist.genres | join(', ')}}
+			</td>
+			<td class="number">{{ artist.followers.total }}</td>
+			<td class="number">{{ artist.popularity }}</td>
+		</tr>
+		{% endfor %}
+
+	</table>
+	{% endif %}
+
+
+
+	{% if artist %}
+	<div style="background-image: url('../static/images/title.gif');">
+		<button style="color:black" id="recordButton">Record</button>
+		<button style="color:yellow" id="pauseButton" disabled>Pause</button>
+		<button style="color:yellow" id="stopButton" disabled>Stop</button>
+		<div style="color:white" id="formats">Start recording to download music </div>
+		<p><strong style="color:yellow">Recordings:</strong></p>
+		<ol id="recordingsList"></ol>
+
+		<form action="{{ url_for('artist', id=artist.id)}}" method="post">
+			<button name="forwardBtn" type="submit">Predicted BPM: {{tempo}} <br>Predicted Tags of song recorded: {{predicted_tags}}</button>
+		</form>
+
+		<button id="floater" style="background-color: yellow;" onclick='location.href="http://localhost:5000/"'>
+			RETURN TO MAIN PAGE
+		</button>
+	</div>
+	{% include 'partials/head.html' %}
+	<section style="background-image: url('../static/images/title.gif');   background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;">
+		<div>
+			<section class="sec">
+
+				<h1 style=" color:green;" class="page-title">{{artist.name}}</h1>
+				<a style="background-color: yellow; color:green;" href="{{artist.external_urls.spotify}}">
+					{{artist.name}} on Spotify
+				</a>
+				<div class="row">
+					<div class="col-sm-4">
+
+
+						<section class="sec">
+							<img src="{{image_url}}" alt="{{image_url}}" class="img-fluid img-square">
+
+						</section>
+
+						<section class="sec">
+							<br>
+							<h4 style="color:rgba(0, 255, 221, 0.479); font-family: 'Times New Roman', Times, serif; font-size: 40px;">Recommended Artists</h4>
+
+							<div class="row">
+								{% for a in related_artists %}
+								{% if a.images %}
+								<div class="col-xs-4">
+									<a href="{{url_for('artist',id=a.id) }}">
+										<img src="{{a.images[-1].url}}" alt="" class="bobby img-thumbnail img-circle">
+										<h2>{{a.name}}</h2>
+									</a>
+								</div>
+								{% endif %}
+								{% endfor %}
+							</div>
+
+						</section>
+					</div>
+
+
+
+
+
+					<div class="col-sm-8">
+						{% if tracks %}
+
+						<section class="sec tracks">
+							<label style="color:yellow;  font-size:40px; background-color:indianred;">Top Tracks</label>
+
+							<table class="table table-condensed tracks">
+								<thead>
+									<tr>
+										<th>Track</th>
+										<th>Popularity</th>
+										<th>Predicted Heart Rate (BPM)</th>
+										\
+									</tr>
+								</thead>
+								{% for t in tracks %}
+								<tr class="track">
+									<td>
+										<div class="track-info">
+											<span class="track-name">{{ t.name }}</span>
+											<span class="album-name">
+												<a style="background-color:white" href="{{t.album.external_urls.spotify}}">
+													{{ t.album.name }}
+												</a>
+											</span>
+										</div>
+										{% if t.preview_url %}
+										<audio src="{{ t.preview_url }}" preload="auto" />
+										{% endif %}
+
+									</td>
+
+									<td class="number">
+										{{ t.popularity }}
+
+									</td>
+									<td class="number">{{ predictions_list[loop.index0] }} BPM</td>
+
+									{% endfor %}
+
+							</table>
+
+						</section>
+						{% endif %}
+					</div>
+				</div>
+
+
+			</section>
+		</div>
+	</section>
+
+
+	{% endif %}
+
+
+<!--
+	<div class="recommender"> -->
+
+		<div class="heart-rate">
+			<hr height="2px" width="20%">
+			<h2 style="color:white">Your current heart rate:<div id="heart_rate">{{hr}} BPM</div>
+			</h2>
+			<img src="../static/images/heart.png" alt="heart">
+		</div>
+
+	<!-- </div> -->
+
+
+
+</body>
+
+<footer id="footer" style="background-image: url('../static/images/title.gif');">
+
+	<p style="color: yellow; font-size:24px; font-family: 'Times New Roman', Times, serif; ">Made with ❤ by ©NextSong, 2021 <br />This is an open source project
+		<a style="color: orange;" href="https://github.com/michali123/music_recommender" target="_blank">GitHub</a>.
+	</p>
+
+</footer>
+<!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+<script src="https://cdn.rawgit.com/mattdiamond/Recorderjs/08e7abd9/dist/recorder.js"></script>
+<script src="{{url_for('static', filename='apps.js')}}"></script>
+<div>Stickers made by <a href="https://www.flaticon.com/authors/stickers" title="Stickers">Stickers</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+
+</html>
