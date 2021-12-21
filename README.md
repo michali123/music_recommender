@@ -52,10 +52,10 @@ If you dont have anaconda installed: (https://www.anaconda.com/products/individu
 open anaconda on your machine,
 then run the follwing
 
-<code> Conda create —name myenv
-Conda activate myenv
-After that run the requirements txt
-Make sure python is 3.7 not 3.8 </code>
+<code> Conda create —name myenv</code> <br>
+<code> Conda activate myenv</code> <br>
+<code> After that run the requirements txt</code> <br>
+* Make sure python is 3.7 not 3.8 
 
 
 #### 2. Install the necessary Python packages
