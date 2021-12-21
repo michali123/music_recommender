@@ -16,7 +16,7 @@ https://drive.google.com/file/d/14vR92W6vfm4MUqNBWYZDgtj_hZXuvvLP/view?usp=shari
 https://drive.google.com/file/d/1Y5u6gnrgd5_Ts83fuJUs21UBriU5GwLN/view?usp=sharing
 
 ### Demo
-https://drive.google.com/drive/folders/1jVSN_FXOhlxtx-pz_3EmZWljbteOE2dJ?usp=sharing
+https://www.youtube.com/watch?v=_EVDI73n0sU
 
 ### NextSong Project Deck Sldes 
 https://docs.google.com/presentation/d/1vv_OHbvcxyG1vmFbQ4ac_xXvftjzGMk01B1HucKkwiM/edit?usp=sharing
