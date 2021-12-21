@@ -49,10 +49,9 @@ In the development of the product, NextSong used:
 #### 1. Clone project
 
 #### Running the pretrained model:
-You have to create a virtual enviorement for this, we recommend using anaconda for this.
-If you dont have anaconda installed: (https://www.anaconda.com/products/individual)
-open anaconda on your machine,
-then run the follwing
+You have to create a virtual enviorement for this, we recommend using anaconda.
+Once you have anaconda installed on your machine: (https://www.anaconda.com/products/individual),
+open anaconda and then run the follwing:
 
 <code> Conda create —name myenv</code> <br>
 <code> Conda activate myenv</code> <br>
