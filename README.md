@@ -4,11 +4,10 @@ Team:
 Michal Moryosef, Abel Asfaw, Dor Ulman, Tenzin Sherpa
 
 
-Welcome to NextSong! smart music recommender, using machine learning.
 
 ![screenshot frontend](https://github.com/michali123/music_recommender/blob/7f202032e3563666a6b00c081ba7054d439794d7/static/images/screenshot%20frontend.png)
 
-
+Welcome to NextSong! smart music recommender, using machine learning.
 
 ### Brief Background:
 The goal of this project is to study how music affects heart rate variability and see how audio features affect our heart rate speed. This has both entertainment and health benefit.  
