@@ -22,7 +22,7 @@ In the development of the product, NextSong used:
 <sup>3</sup> https://developer.spotify.com/console/ <br>
 <sup>4</sup> https://github.com/jordipons/musicnn, https://towardsdatascience.com/musicnn-5d1a5883989b
 
-### Technology Used:
+### Technologies Used:
 
 1. Flask
 2. Bootstrap
