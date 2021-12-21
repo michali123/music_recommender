@@ -22,6 +22,12 @@ In the development of the product, NextSong used:
 <sup>3</sup> https://developer.spotify.com/console/ <br>
 <sup>4</sup> https://github.com/jordipons/musicnn, https://towardsdatascience.com/musicnn-5d1a5883989b
 
+### Technology Used:
+
+1. Flask
+2. Bootstrap
+3. Methods and Algorithms: CNN, Linear Regression, Transfer Learning
+4. API's extensive usage from Spotify and Pulsoid
 
 ## Pre-Requisites To Run NextSong Locally:
 
@@ -43,22 +49,22 @@ Make sure python is 3.7 not 3.8 </code>
 
 <code> $ pip install -r requirements.txt> </code>
 
-#### Own a Spotify account to get the music recommendation playlist created directly to your account.
+#### 3. Own a Spotify account to get the music recommendation playlist created directly to your account.
 https://www.spotify.com
 
-#### 3. Export the environment variables
+#### 4. Export the environment variables
 
 <code> $ export SPOTIFY_AUTHORIZATION_TOKEN=value_grabbed_from_spotify</code>
 
 <code> $ export SPOTIFY_USER_ID=value_grabbed_from_spotify</code>
 
-#### 4. Have a Pulsoid app account in order to live stream your heart rate to the website
+#### 5. Have a Pulsoid app account in order to live stream your heart rate to the website
 https://pulsoid.net/
 
-#### 5. In cloned project folder run the entry-point script in cmd/termial
+#### 6. In cloned project folder run the entry-point script in cmd/termial
 <code> python app.py</code>
 
-#### 6. Download "musicnn" transfer model from GoogleDrive link below and put in your cloned folder
+#### 7. Download "musicnn" transfer model from GoogleDrive link below and put in your cloned folder
 (We could'nt attach it directly in this repo due to size limitations)
 https://drive.google.com/drive/folders/1H9v07PqVAwPicbWGRxhDk3EQb3TY9VnF?usp=sharing
 
