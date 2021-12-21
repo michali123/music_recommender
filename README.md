@@ -10,7 +10,7 @@ Michal Moryosef, Abel Asfaw, Dor Ulman, Tenzin Sherpa
 Welcome to NextSong! smart music recommender, using machine learning.
 
 ### Jupyter Notebook + HTML View 
-Included in this repo in the Jupyter Noebook folder.
+Included in this repo inside Jupyter Noebook folder.
 If for some reason you can not access to it please find it here:
 https://drive.google.com/file/d/14vR92W6vfm4MUqNBWYZDgtj_hZXuvvLP/view?usp=sharing
 https://drive.google.com/file/d/1Y5u6gnrgd5_Ts83fuJUs21UBriU5GwLN/view?usp=sharing
