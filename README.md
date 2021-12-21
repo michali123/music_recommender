@@ -25,11 +25,12 @@ In the development of the product, NextSong used:
 
 ## Pre-Requisites To Run NextSong Locally:
 
-#### Clone project
+#### 1. Clone project
 
 #### Running the pretrained model:
 You have to create a virtual enviorement for this, we recommend using anaconda for this.
-open anaconda,
+If you dont have anaconda installed: (https://www.anaconda.com/products/individual)
+open anaconda on your machine,
 then run the follwing
 
 <code> Conda create —name myenv
@@ -38,26 +39,26 @@ After that run the requirements txt
 Make sure python is 3.7 not 3.8 </code>
 
 
-#### Install the necessary Python packages
+#### 2. Install the necessary Python packages
 
 <code> $ pip install -r requirements.txt> </code>
 
 #### Own a Spotify account to get the music recommendation playlist created directly to your account.
 https://www.spotify.com
 
-#### Export the environment variables
+#### 3. Export the environment variables
 
 <code> $ export SPOTIFY_AUTHORIZATION_TOKEN=value_grabbed_from_spotify</code>
 
 <code> $ export SPOTIFY_USER_ID=value_grabbed_from_spotify</code>
 
-#### Have a Pulsoid app account in order to live stream your heart rate to the website
+#### 4. Have a Pulsoid app account in order to live stream your heart rate to the website
 https://pulsoid.net/
 
-#### In cloned project folder run the entry-point script in cmd/termial
+#### 5. In cloned project folder run the entry-point script in cmd/termial
 <code> python app.py</code>
 
-#### Download "musicnn" transfer model from GoogleDrive link below
+#### 6. Download "musicnn" transfer model from GoogleDrive link below and put in your cloned folder
 (We could'nt attach it directly in this repo due to size limitations)
 https://drive.google.com/drive/folders/1H9v07PqVAwPicbWGRxhDk3EQb3TY9VnF?usp=sharing
 
