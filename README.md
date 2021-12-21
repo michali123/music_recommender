@@ -65,6 +65,6 @@ https://drive.google.com/drive/folders/1H9v07PqVAwPicbWGRxhDk3EQb3TY9VnF?usp=sha
 ### NextSong Project Deck Sldes 
 https://docs.google.com/presentation/d/1vv_OHbvcxyG1vmFbQ4ac_xXvftjzGMk01B1HucKkwiM/edit?usp=sharing
 
-### Jupyer Notebook
-Included in this repo, look for the .ipynb file.
+### Jupyer Notebook + HTML View 
+Included in this repo in the Jupyter Noebook folder.
 
