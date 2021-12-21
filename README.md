@@ -67,4 +67,5 @@ https://docs.google.com/presentation/d/1vv_OHbvcxyG1vmFbQ4ac_xXvftjzGMk01B1HucKk
 
 ### Jupyter Notebook + HTML View 
 Included in this repo in the Jupyter Noebook folder.
-
+If for some reason you can not access to it please find it here:
+https://drive.google.com/file/d/14vR92W6vfm4MUqNBWYZDgtj_hZXuvvLP/view?usp=sharing
