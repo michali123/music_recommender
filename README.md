@@ -9,6 +9,10 @@ Michal Moryosef, Abel Asfaw, Dor Ulman, Tenzin Sherpa
 
 Welcome to NextSong! smart music recommender, using machine learning.
 
+### Demo
+https://www.youtube.com/watch?v=_EVDI73n0sU
+![image](https://user-images.githubusercontent.com/42022911/146870778-edec0e69-2d60-4b8d-8e07-a0f6e0d74fdd.png)
+
 ### Jupyter Notebook + HTML View 
 Included in this repo inside Jupyter Noebook folder.
 If for some reason you can not access to it please find it here:
@@ -17,11 +21,7 @@ https://drive.google.com/file/d/1Y5u6gnrgd5_Ts83fuJUs21UBriU5GwLN/view?usp=shari
 
 *In order to view visuals in HTML format you need to download Music Files folder (in Google Drive link) to the same path of your HTML.
 
-### Demo
-https://www.youtube.com/watch?v=_EVDI73n0sU
-![image](https://user-images.githubusercontent.com/42022911/146870778-edec0e69-2d60-4b8d-8e07-a0f6e0d74fdd.png)
-
-### NextSong Project Deck Sldes 
+### NextSong Project Deck Slides 
 https://docs.google.com/presentation/d/1vv_OHbvcxyG1vmFbQ4ac_xXvftjzGMk01B1HucKkwiM/edit?usp=sharing
 
 ### Brief Background:
