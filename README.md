@@ -9,6 +9,18 @@ Michal Moryosef, Abel Asfaw, Dor Ulman, Tenzin Sherpa
 
 Welcome to NextSong! smart music recommender, using machine learning.
 
+### Jupyter Notebook + HTML View 
+Included in this repo in the Jupyter Noebook folder.
+If for some reason you can not access to it please find it here:
+https://drive.google.com/file/d/14vR92W6vfm4MUqNBWYZDgtj_hZXuvvLP/view?usp=sharing
+https://drive.google.com/file/d/1Y5u6gnrgd5_Ts83fuJUs21UBriU5GwLN/view?usp=sharing
+
+### Demo
+https://drive.google.com/drive/folders/1jVSN_FXOhlxtx-pz_3EmZWljbteOE2dJ?usp=sharing
+
+### NextSong Project Deck Sldes 
+https://docs.google.com/presentation/d/1vv_OHbvcxyG1vmFbQ4ac_xXvftjzGMk01B1HucKkwiM/edit?usp=sharing
+
 ### Brief Background:
 The goal of this project is to study how music affects heart rate variability and see how audio features affect our heart rate speed. This has both entertainment and health benefit.  
 In the development of the product, NextSong used:
@@ -68,11 +80,3 @@ https://pulsoid.net/
 (We could'nt attach it directly in this repo due to size limitations)
 https://drive.google.com/drive/folders/1H9v07PqVAwPicbWGRxhDk3EQb3TY9VnF?usp=sharing
 
-### NextSong Project Deck Sldes 
-https://docs.google.com/presentation/d/1vv_OHbvcxyG1vmFbQ4ac_xXvftjzGMk01B1HucKkwiM/edit?usp=sharing
-
-### Jupyter Notebook + HTML View 
-Included in this repo in the Jupyter Noebook folder.
-If for some reason you can not access to it please find it here:
-https://drive.google.com/file/d/14vR92W6vfm4MUqNBWYZDgtj_hZXuvvLP/view?usp=sharing
-https://drive.google.com/file/d/1Y5u6gnrgd5_Ts83fuJUs21UBriU5GwLN/view?usp=sharing
