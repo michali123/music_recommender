@@ -78,6 +78,6 @@ https://pulsoid.net/
 <code> python app.py</code>
 
 #### 7. Download "musicnn" transfer model from GoogleDrive link below and put in your cloned folder
-(We could'nt attach it directly in this repo due to size limitations)
+(We couldn't attach it directly in this repo due to size limitations)
 https://drive.google.com/drive/folders/1H9v07PqVAwPicbWGRxhDk3EQb3TY9VnF?usp=sharing
 
