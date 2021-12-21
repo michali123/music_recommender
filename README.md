@@ -5,6 +5,8 @@ Michal Moryosef, Abel Asfaw, Dor Ulman, Tenzin Sherpa
 
 
 Welcome to NextSong! smart music recommender, using machine learning.
+![alt text](static/images/screenshot frontend.png)
+
 ![screenshot frontend](static/images/screenshot frontend.png)
 
 
